@@ -168,3 +168,96 @@ new Date에 인수로 넘길 수 있는 문자열이 정의된 사이트
 - `toLocalString` 현지화된 시간까지
 - `toLocalDateString` 현지화된 날짜까지만
 
+# 비동기
+
+## setTimeout
+
+`setTimeout` 메소드를 사용하면 비동기 처리가 가능하다. setTimeout의 로직이 끝날때까지 기다리지 않고 다음 로직을 실행함.
+
+```javascript
+setTimeout(() => {
+    console.log("1번!");
+}, 3000) // 쓰레드가 setTimeout을 만나면 3초간 대기하고 로직을 실행함
+
+console.log("2번!"); 
+// output
+// 2번! 다음에 1번!이 출력됨
+```
+
+setTimeout에 의해 발생한 값을 핸들링하기 위해서 callback 함수를 활용해야한다
+
+```javascript
+function double(num, cb) {
+    setTimeout(() => {
+        const doubleNum = num * 2;
+        cb(doubleNum);
+    }, 1000);
+}
+
+double(10, (res) => {
+    console.log(res);
+})
+
+```
+
+## 프로미스
+비동기 처리를 목적으로 만들어진 객체이다.
+
+프로미스는 `대기, 성공, 실패` 3가지 상태를 가진다. 대기에서 성공으로 가면 `해결(resolve)`, 대기에서 실패로 가면 `거부(reject)`라고 함.
+
+`new Promise`를 통해서 생성과 동시에 실행이 가능하다.
+
+resolve, reject 메소드를 통해서 비동기의 해결과 거부를 표시를 적용할수 있다.
+
+```javascript
+const promise = new Promise(
+    function (resolve, reject) {
+        setTimeout(() => {
+            resolve("성공"); // 비동기 처리중 성공
+        }, 500);
+    }
+)
+
+promise.then(function (res) { // resolve일때만 실행된다.
+    console.log(res); // "성공"이 출력된다.
+})
+```
+
+거부를 실행하면 then은 작동하지 않는다.
+
+```javascript
+const promise = new Promise(
+    function (resolve, reject) {
+        setTimeout(() => {
+            reject("실패"); // 비동기 처리중 실패
+        }, 500);
+    }
+)
+
+promise.then(function (res) { // 비동기 결과가 실패이기 때문에 실행되지 않음.
+    console.log(res);
+})
+```
+
+비동기 실패를 잡으려면 아래와 같이 `catch`를 써줘야한다.
+
+```javascript
+const promise = new Promise(
+    function (resolve, reject) {
+        setTimeout(() => {
+            reject("실패"); // 비동기 처리중 실패
+        }, 500);
+    }
+)
+
+promise.then(function (res) { // 비동기 결과가 실패이기 때문에 실행되지 않음.
+    console.log(res);
+});
+
+promise.catch(function (res) { // 비동기 결과가 실패이기 때문에 실행되지 않음.
+    console.log(res);
+})
+
+
+```
+
