@@ -5,9 +5,13 @@
   "main": "sample.js",
   "scripts": {
     "start": "node index.js",
+    "start-lodash-sample": "node lodash-sample.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
   "license": "ISC",
-  "type":"module"
+  "type": "module",
+  "dependencies": {
+    "lodash": "^4.17.21"
+  }
 }
