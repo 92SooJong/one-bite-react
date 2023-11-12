@@ -1,7 +1,27 @@
+import "./Body.css";
+
 function Body() {
 
-    const numA = 1;
-    const numB = 2;
+    return (
+        <div className="body">
+            <h1>body</h1>
+        </div>
+    );
+
+    // return (
+    //     // 객체형태로 작성한다. 스타일 규칙이 많으면 코드가 복잡해져 가독성이 낮아진다.
+    //     // 페이지가 스타일을 계싼할 떄 불필요한 연산을 수행할 가능성이 있다.
+    //     <div style={{ backgroundColor: "red", color: "blue" }}>
+    //         <h1>body</h1>
+    //     </div>
+    // )
+
+
+
+
+
+    // const numA = 1;
+    // const numB = 2;
 
     // return (
     //     <div>
@@ -30,12 +50,12 @@ function Body() {
     // )
 
     //조건문은 표현식이 아니므로 아래와 같이 처리하면 된다.
-    const num = 200;
-    if (num % 2 === 0) {
-        return <div>{num}은(는) 짝수입니다.</div>
-    } else {
-        return <div>{num}은(는) 홀수입니다.</div>
-    }
+    // const num = 200;
+    // if (num % 2 === 0) {
+    //     return <div>{num}은(는) 짝수입니다.</div>
+    // } else {
+    //     return <div>{num}은(는) 홀수입니다.</div>
+    // }
 
 }
 
