@@ -1,12 +1,24 @@
 import "./Body.css";
 
-function Body() {
+function Body({name, location}) { //매개변수 구조 할당을 좀 더 선호함
+    
+    // 구조 분해 할당을 통해서 손쉽게 변수화 하자!
+    //const {name, location} = props;
+    console.log(name, location);
 
     return (
         <div className="body">
-            <h1>body</h1>
+            {name}은 {location}에 거주합니다.
         </div>
     );
+
+
+    // 구조분해 할당 전
+    // return (
+    //     <div className="body">
+    //         {props.name}은 {props.location}에 거주합니다.
+    //     </div>
+    // );
 
     // return (
     //     // 객체형태로 작성한다. 스타일 규칙이 많으면 코드가 복잡해져 가독성이 낮아진다.
@@ -15,10 +27,6 @@ function Body() {
     //         <h1>body</h1>
     //     </div>
     // )
-
-
-
-
 
     // const numA = 1;
     // const numB = 2;
