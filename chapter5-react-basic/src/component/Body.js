@@ -2,20 +2,19 @@ import "./Body.css";
 
 function Body({ children }) {
     
-    console.log(children);
+    function handleOnClick(e) {
+        //alert("버튼을 클릭하셨군요!!");
+        console.log(e);
+        console.log(e.target.name);
+    }
 
     return (
         <div className="body">
-            {children}
+            <button name="A버튼" onClick={handleOnClick}>A 버튼</button>
+            <button name="B버튼" onClick={handleOnClick}>B 버튼</button>
         </div>
-    );
+    )
 
 }
-
-// favorList 프로퍼티가 존재하지 않는 경우를 대비해서 default 세팅을 해줄 수 있다.
-Body.defaultProps = {
-    favorList: [],
-};
-
 
 export default Body;
