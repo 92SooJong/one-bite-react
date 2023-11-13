@@ -1,17 +1,17 @@
-import "./Body.css";
+import { useState } from "react";
 
-function Body({ children }) {
-    
-    function handleOnClick(e) {
-        //alert("버튼을 클릭하셨군요!!");
-        console.log(e);
-        console.log(e.target.name);
+function Body() {
+    console.log("Upate!")
+    const [count, setCount] = useState(0);
+
+    const onIncrease = () => {
+        setCount(count + 1);
     }
 
     return (
-        <div className="body">
-            <button name="A버튼" onClick={handleOnClick}>A 버튼</button>
-            <button name="B버튼" onClick={handleOnClick}>B 버튼</button>
+        <div>
+            <h2>{count}</h2>
+            <button onClick={onIncrease}>+</button>
         </div>
     )
 
