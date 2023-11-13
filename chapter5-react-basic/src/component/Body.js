@@ -1,10 +1,10 @@
 import "./Body.css";
 import { useState } from "react";
 
-function Viewer({ number }) {
-    // props를 통해서 부모의 State 변수를 넘겨받는다.
-    // 부모가 State 변수를 변경할때마다 자식에게도 반영된다!!
-    return <div>{number % 2 === 0 ? <h3>짝수</h3> : <h3>홀수</h3>}</div>
+function Viewer() {
+    // 부모가 리랜더 되면 자식도 함께 리랜더 된다
+    console.log("viewer component update!");
+    return <div>Viewer</div>;
 }
 
 
@@ -23,8 +23,7 @@ function Body() {
     return (
         <div>
             <h2>{number}</h2>
-            <Viewer number={number} />
-
+            <Viewer/>
             <div>
                 <button onClick={onDecrease}>-</button>
                 <button onClick={onIncrease}>+</button>
