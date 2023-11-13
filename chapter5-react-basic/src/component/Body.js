@@ -1,17 +1,17 @@
 import { useState } from "react";
 
 function Body() {
-    console.log("Upate!")
-    const [count, setCount] = useState(0);
 
-    const onIncrease = () => {
-        setCount(count + 1);
+    const [text, setText] = useState("");
+
+    const handleOnChange = (e) => {
+        setText(e.target.value);
     }
 
     return (
         <div>
-            <h2>{count}</h2>
-            <button onClick={onIncrease}>+</button>
+            <input value={text} onChange={handleOnChange} />
+            <div>{text}</div>
         </div>
     )
 
