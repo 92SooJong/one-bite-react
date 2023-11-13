@@ -1,54 +1,33 @@
+import "./Body.css";
 import { useState } from "react";
+
+function Viewer({ number }) {
+    // props를 통해서 부모의 State 변수를 넘겨받는다.
+    // 부모가 State 변수를 변경할때마다 자식에게도 반영된다!!
+    return <div>{number % 2 === 0 ? <h3>짝수</h3> : <h3>홀수</h3>}</div>
+}
+
 
 function Body() {
 
-    const [state, setState] = useState({
-        name: "",
-        gender: "",
-        birth: "",
-        bio: "",
-    });
+    const [number, setNumber] = useState(0);
 
-    const handleOnChange = (e) => {
-        console.log("수정 대상 : ", e.target.name);
-        console.log("수정값 : ", e.target.value);
+    const onIncrease = () => {
+        setNumber(number + 1);
+    }
 
-        setState({
-            ...state,
-            [e.target.name]: e.target.value,
-        });
-
+    const onDecrease = () => {
+        setNumber(number - 1);
     }
 
     return (
         <div>
-            <div>
-                <input
-                    name="name"
-                    value={state.name}
-                    onChange={handleOnChange}
-                    placeholder="이름"
-                />
-            </div>
+            <h2>{number}</h2>
+            <Viewer number={number} />
 
             <div>
-                <select name="gender" value={state.gender} onChange={handleOnChange}>
-                    <option key={""}></option>
-                    <option key={"남성"}>남성</option>
-                    <option key={"여성"}>여성</option>
-                </select>
-            </div>
-            
-            <div>
-                <input
-                    name="birth"
-                    type="date"
-                    value={state.birth}
-                    onChange={handleOnChange}
-                />
-            </div>
-            <div>
-                <textarea name="bio" value={state.bio} onChange={handleOnChange} />
+                <button onClick={onDecrease}>-</button>
+                <button onClick={onIncrease}>+</button>
             </div>
         </div>
     )
