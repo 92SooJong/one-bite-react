@@ -1,33 +1,23 @@
-import "./Body.css";
-import { useState } from "react";
-
-function Viewer() {
-    // 부모가 리랜더 되면 자식도 함께 리랜더 된다
-    console.log("viewer component update!");
-    return <div>Viewer</div>;
-}
-
+import { useRef, useState } from "react";
 
 function Body() {
 
-    const [number, setNumber] = useState(0);
+    const [text, setText] = useState("");
+    const textRef = useRef();
 
-    const onIncrease = () => {
-        setNumber(number + 1);
+    const handleOnChange = (e) => {
+        setText(e.target.value);
     }
 
-    const onDecrease = () => {
-        setNumber(number - 1);
+    const handleOnClick = () => {
+        alert(text);
+        textRef.current.value = "";
     }
 
     return (
         <div>
-            <h2>{number}</h2>
-            <Viewer/>
-            <div>
-                <button onClick={onDecrease}>-</button>
-                <button onClick={onIncrease}>+</button>
-            </div>
+            <input ref={textRef} value={text} onChange={handleOnChange}></input>
+            <button onClick={handleOnClick}>작성 완료</button>
         </div>
     )
 
