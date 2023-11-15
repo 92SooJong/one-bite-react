@@ -10,8 +10,13 @@ function Body() {
     }
 
     const handleOnClick = () => {
-        alert(text);
-        textRef.current.value = "";
+        if (text.length < 5) {
+            textRef.current.focus();
+        } else {
+            alert(text);
+            setText("");
+        }
+
     }
 
     return (
