@@ -32,6 +32,20 @@ function App() {
     console.log("컴포넌트 마운트");
   }, []); // 의존성 배열을 빈 배열로 전달하면 마운트 시점에만 콜백 함수를 실행 함
 
+  useEffect(() => {
+    const intervalID = setInterval(() => { // 자바 스크립트 내장 함수이며, 특정 시간 간격으로 콜백 함수를 실행해줌
+      console.log("깜빡");
+    }, 1000); // 1초 대기후에 콜백 실행
+
+    // useEffect의 클린업 함수. 이 함수는 콜백 함수를 다시 호출하기 전에 실행된다.
+    // use칟
+    return () => { 
+      console.log("클린업");
+      clearInterval(intervalID);
+    }
+
+  });
+
 
   return (
     <div className="App">
