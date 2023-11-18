@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import './App.css';
 import Controller from './component/Controller';
 import Viewer from './component/Viewer';
@@ -17,9 +17,17 @@ function App() {
   }
 
 
-  
+  const didMountRef = useRef(false); //  
   useEffect(() => {
-    console.log("컴포넌트 업데이트");
+    
+    if (!didMountRef.current) {
+      didMountRef.current = true;
+      return;
+    } else {
+      console.log("컴포넌트 업데이트");
+    }
+
+
   }); // 두번쨰 인수(의존성 배열)에 아무것도 전달하지 않으면 컴포넌트를 렌더링할 때마다 콜백 함수를 실행한다.
 
   return (
