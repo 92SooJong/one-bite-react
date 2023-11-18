@@ -17,7 +17,7 @@ function App() {
   }
 
 
-  const didMountRef = useRef(false); //  
+  const didMountRef = useRef(false);
   useEffect(() => {
     
     if (!didMountRef.current) {
@@ -26,9 +26,12 @@ function App() {
     } else {
       console.log("컴포넌트 업데이트");
     }
-
-
   }); // 두번쨰 인수(의존성 배열)에 아무것도 전달하지 않으면 컴포넌트를 렌더링할 때마다 콜백 함수를 실행한다.
+
+  useEffect(() => {
+    console.log("컴포넌트 마운트");
+  }, []); // 의존성 배열을 빈 배열로 전달하면 마운트 시점에만 콜백 함수를 실행 함
+
 
   return (
     <div className="App">
