@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import './App.css';
 import Controller from './component/Controller';
+import Even from './component/Even';
 import Viewer from './component/Viewer';
 
 function App() {
@@ -37,8 +38,7 @@ function App() {
       console.log("깜빡");
     }, 1000); // 1초 대기후에 콜백 실행
 
-    // useEffect의 클린업 함수. 이 함수는 콜백 함수를 다시 호출하기 전에 실행된다.
-    // use칟
+    // useEffect의 클린업 함수. 이 함수는 콜백 함수를 다시 호출하기 전에 실행되거나, 컴포넌트가 언마운트 되는 시점에 실행된다
     return () => { 
       console.log("클린업");
       clearInterval(intervalID);
@@ -55,6 +55,7 @@ function App() {
       </section>
       <section> {/* section은 영역 분리를 위한 태그임. div와 동일한 기능을 수행함  */}
         <Viewer count={count}/>
+        {count % 2 === 0 && <Even></Even>}
       </section>
       <section>
         <Controller handleSetCount={handleSetCount}/>
