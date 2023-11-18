@@ -16,13 +16,11 @@ function App() {
     setText(e.target.value);
   }
 
-  useEffect(() => { // 첫번쨰 인수로 콜백 함수, 두번쨰 인수로 의존성 배열
-    console.log("count 업데이트 : ", count);
-  }, [count]); // useEffect는 의존성 배열이 변경되면 콜백 함수를 실행하도록 동작함.
 
+  
   useEffect(() => {
-    console.log("업데이트 : ", text, count);
-  }, [count, text]);
+    console.log("컴포넌트 업데이트");
+  }); // 두번쨰 인수(의존성 배열)에 아무것도 전달하지 않으면 컴포넌트를 렌더링할 때마다 콜백 함수를 실행한다.
 
   return (
     <div className="App">
