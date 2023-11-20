@@ -47,7 +47,7 @@ function App() {
     <div className="App">
       <Header></Header>
       <TodoEditor onCreate={onCreate}></TodoEditor>
-      <TodoList></TodoList>
+      <TodoList todo={todo}></TodoList>
     </div>
   );
 }
