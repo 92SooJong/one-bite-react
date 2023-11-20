@@ -4,7 +4,6 @@
   margin: 0 auto; /* 여백 위아래 0, 좌우는 자동. 자동으로 하면 중앙정렬을 위해 마진을 알아서 조절해줌. */
   box-sizing: border-box; /* 요소의 크기를 어떤 것을 기준으로 할지 정하는 역할. border-box로 하면 내부 여백이 요소의 크기에 영향을 미치지 않도록 해줌 */
   padding: 20px; /* 내부 여백을 20px로 설정 */
-  border: 1px solid gray;
 
   display: flex; /* 페이지의 요소를 브라우저에서 어떻게 보여줄지 결정함. 기본값은 block. flex로 하면 요소를 수평으로 배치한다.  */
   flex-direction: column; /* flex 컨테이너 요소를 수직으로 배치시킴 */
