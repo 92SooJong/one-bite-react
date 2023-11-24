@@ -3,7 +3,7 @@ import TodoItem from "./TodoItem";
 import "./TodoList.css"
 
 
-const TodoList = ({ todo, onUpdate }) => {
+const TodoList = ({ todo, onUpdate, onDelete }) => {
 
     const [search, setSearch] = useState("");
     const onChangeSearch = (e) => {
@@ -20,7 +20,7 @@ const TodoList = ({ todo, onUpdate }) => {
         <input value={search} onChange={onChangeSearch} className="searchbar" placeholder="검색어를 입력하세요"></input>
         <div className="list_wrapper">
             {getSearchResult().map((it) => (
-                <TodoItem key={it.id} {...it} onUpdate={onUpdate}></TodoItem>
+                <TodoItem key={it.id} {...it} onUpdate={onUpdate} onDelete={onDelete}></TodoItem>
             ))}
         </div>
     </div>
