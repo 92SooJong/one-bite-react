@@ -1,6 +1,7 @@
 import { useState, useRef } from "react"
 import './App.css';
 import Header from './component/Header';
+import TestComp from "./component/TestComp";
 import TodoEditor from './component/TodoEditor';
 import TodoList from './component/TodoList';
 
@@ -60,6 +61,7 @@ function App() {
 
   return (
     <div className="App">
+      <TestComp></TestComp>
       <Header></Header>
       <TodoEditor onCreate={onCreate}></TodoEditor>
       <TodoList todo={todo} onUpdate={onUpdate} onDelete={onDelete}></TodoList>
