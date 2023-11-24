@@ -42,12 +42,23 @@ function App() {
     idRef.current += 1;
   }
 
+  // Todo Item을 수정하기 위한 함수
+  const onUpdate = (targetId) => {
+    setTodo( 
+      // targetId를 가지는 Todo Item 상태를 변경하는 로직
+      todo.map(
+        (it) => it.id === targetId ? {...it, isDone: !it.isDone } : it
+      )
+    );
+  };
+
+
 
   return (
     <div className="App">
       <Header></Header>
       <TodoEditor onCreate={onCreate}></TodoEditor>
-      <TodoList todo={todo}></TodoList>
+      <TodoList todo={todo} onUpdate={onUpdate}></TodoList>
     </div>
   );
 }
