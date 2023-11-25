@@ -83,7 +83,6 @@ function App() {
 
   return (
     <div className="App">
-      <TestComp></TestComp>
       <Header></Header>
       <TodoEditor onCreate={onCreate}></TodoEditor>
       <TodoList todo={todo} onUpdate={onUpdate} onDelete={onDelete}></TodoList>
