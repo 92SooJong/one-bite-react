@@ -1,7 +1,6 @@
 import { useRef, useReducer } from "react"
 import './App.css';
 import Header from './component/Header';
-import TestComp from "./component/TestComp";
 import TodoEditor from './component/TodoEditor';
 import TodoList from './component/TodoList';
 
