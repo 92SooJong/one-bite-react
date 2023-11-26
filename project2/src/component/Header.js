@@ -1,7 +1,8 @@
+import React from "react";
 import "./Header.css"
 
-
 const Header = () => {
+    console.log("Header 업데이트");
     return (
     <div className="Header">
         <h3>오늘은 🗓</h3>
@@ -11,4 +12,4 @@ const Header = () => {
     )
 };
 
-export default Header;
+export default React.memo(Header); // 컴포넌트 메모이제이션을 적용한다
