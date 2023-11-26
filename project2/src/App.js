@@ -1,4 +1,5 @@
 import { useCallback, useRef, useReducer } from "react"
+import React from "react";
 import './App.css';
 import Header from './component/Header';
 import TodoEditor from './component/TodoEditor';
@@ -43,6 +44,9 @@ function reducer(state, action) {
   }
 }
 
+export const TodoContext = React.createContext();
+
+
 
 function App() {
 
@@ -83,8 +87,11 @@ function App() {
   return (
     <div className="App">
       <Header></Header>
-      <TodoEditor onCreate={onCreate}></TodoEditor>
-      <TodoList todo={todo} onUpdate={onUpdate} onDelete={onDelete}></TodoList>
+      <TodoContext.Provider value={{ todo, onCreate, onUpdate, onDelete}}>
+        <TodoEditor></TodoEditor>
+        <TodoList></TodoList>
+      </TodoContext.Provider>
+      
     </div>
   );
 }
