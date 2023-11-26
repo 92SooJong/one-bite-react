@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import TodoItem from "./TodoItem";
 import "./TodoList.css"
 
@@ -14,7 +14,8 @@ const TodoList = ({ todo, onUpdate, onDelete }) => {
         return search === "" ? todo : todo.filter((it) => it.content.toLowerCase().includes(search));
     }
 
-    const analyzeTodo = () => {
+    const analyzeTodo = useMemo(() => {
+        console.log("analyzeTodo 함수 호출");
         const totalCount = todo.length;
         const doneCount = todo.filter((it) => it.isDone).length;
         const notDoneCount = totalCount - doneCount;
@@ -22,9 +23,10 @@ const TodoList = ({ todo, onUpdate, onDelete }) => {
             totalCount,
             doneCount,
             notDoneCount
-        }
-    }
-    const { totalCount, doneCount, notDoneCount } = analyzeTodo();
+        };
+    }, [todo]);
+
+    const { totalCount, doneCount, notDoneCount } = analyzeTodo; // useMemo는 함수가 아닌 값을 반환하므로 괄호 없이 사용
 
     return (
     <div className="TodoList">
