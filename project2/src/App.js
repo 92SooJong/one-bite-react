@@ -1,4 +1,4 @@
-import { useRef, useReducer } from "react"
+import { useCallback, useRef, useReducer } from "react"
 import './App.css';
 import Header from './component/Header';
 import TodoEditor from './component/TodoEditor';
@@ -64,19 +64,19 @@ function App() {
   }
 
   // Todo Item을 수정하기 위한 함수
-  const onUpdate = (targetId) => {
+  const onUpdate = useCallback((targetId) => {
     dispatch({
       type: "UPDATE",
       targetId,
     });
-  };
+  }, []);
 
-  const onDelete = (targetId) => {
+  const onDelete = useCallback((targetId) => {
     dispatch({
       type: "DELETE",
       targetId,
     });
-  }
+  }, []);
 
 
 
