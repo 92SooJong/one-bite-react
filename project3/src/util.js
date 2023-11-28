@@ -21,3 +21,13 @@ export const getEmotionImgById = (emotionId) => {
             return null;
     }
 }
+
+export const getFormattedDate = (targetDate) => {
+    let year = targetDate.getFullYear();
+    let month = targetDate.getMonth() + 1;
+    let date = targetDate.getDate();
+    if (month < 10) {
+        month = `0${month}`;
+    }
+    return `${year}-${month}-${date}`;
+}
