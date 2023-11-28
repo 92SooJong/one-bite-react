@@ -5,7 +5,7 @@ const Home = () => {
 
     return (
         <div>
-            <Button></Button>
+            <Button text={"버튼 텍스트"} onClick={() => alert("hi")} type={"default"}></Button>
         </div>
     )
 };
