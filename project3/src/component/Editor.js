@@ -1,8 +1,13 @@
 import { useState } from "react";
 import { getFormattedDate } from "../util";
 import "./Editor.css";
+import Button from "./Button";
+import { useNavigate } from "react-router-dom";
 
 const Editor = ({ initData, onSubmit }) => {
+
+    const navigate = useNavigate();
+
 
     const [state, setState] = useState({
         date: getFormattedDate(new Date()),
@@ -24,6 +29,13 @@ const Editor = ({ initData, onSubmit }) => {
         })
     }
 
+    const handleSubmit = () => {
+        onSubmit(state);
+    }
+
+    const handleOnGoBack = () => {
+        navigate(-1);
+    }
 
     return (
         <div className="Editor">
@@ -45,12 +57,12 @@ const Editor = ({ initData, onSubmit }) => {
                     placeholder="오늘은 어땠나요?"
                     value={state.content}
                     onChange={handleChangeContent}></textarea>
-
                 </div>
             </div>
 
-            <div className="editor_section">
-                {/* 작성 완료, 취소 */}
+            <div className="editor_section bottom_section">
+                <Button text={"취소하기"} onClick={handleOnGoBack}></Button>
+                <Button text={"작성 완료"} type={"positive"} onClick={handleSubmit}></Button>
             </div>
         </div>
     );

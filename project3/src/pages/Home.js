@@ -7,7 +7,8 @@ const Home = () => {
 
     return (
         <div>
-            <Editor></Editor>
+            <Editor 
+            onSubmit={() => {alert("작성 완료 버튼을 클릭했음")}}></Editor>
         </div>
     )
 };
