@@ -10,7 +10,7 @@ const Home = () => {
 
     const data = useContext(DiaryStateContext);
     const [pivotDate, setPivotDate] = useState(new Date());
-    const [filteredData, setFilteredData] = useState();
+    const [filteredData, setFilteredData] = useState([]);
 
     useEffect(() => {
         if (data.length >= 1) {
