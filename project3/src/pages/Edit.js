@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { DiaryDispatchContext } from "../App";
+import Editor from "../component/Editor";
 import Button from "../component/Button";
 import Header from "../component/Header";
 import useDiary from "../hooks/useDiary";
@@ -34,6 +35,7 @@ const Edit = () => {
                     leftChild={<Button text={"< 뒤로 가기"} onClick={goBack}/>}
                     rightChild={<Button type={"negative"} text={"삭제하기"} onClick={onClickDelete}/>}
                 />
+                <Editor initData={data}></Editor>
             </div>
         )
     }
