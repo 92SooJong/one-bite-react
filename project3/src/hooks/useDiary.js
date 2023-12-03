@@ -5,7 +5,7 @@ import { DiaryStateContext } from "../App";
 const useDiary = (id) => {
 
     const data = useContext(DiaryStateContext);
-    const [diary, setDiary] = useState();
+    const [diary, setDiary] = useState(); // 기본값이 없으므로 undefined 
     const navigate = useNavigate();
 
     useEffect(() => {
